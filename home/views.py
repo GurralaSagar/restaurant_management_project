@@ -5,3 +5,7 @@ from django.http import HttpResponse
 
 def home_view(request):
     return render(request,'home/index.html')
+
+def homepage(request):
+    phone_number = settings.RESTAURANT_PHONE_NUMBER
+    return render(request,'homepage.html',{'phone_number':phone_number})
