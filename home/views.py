@@ -15,3 +15,6 @@ def home(request):
         'restaurant_name':'Delicious Bites'
     }
     return render(request, 'home.html',context)
+
+def contact_view(request):
+    return render(request,'contact.html')
