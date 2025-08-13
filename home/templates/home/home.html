@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            My Restaurant
+        </title>
+        <style>
+            body{
+                font-family : Arial, sans-serial;
+                background-color : #faf3e0;
+                text-align : center;
+                margin : 0;
+                padding : 0;
+            }
+            header {
+                background-color : #d35400;
+                color : white;
+                padding : 20px 0;
+            }
+            h1{
+                margin : 0;
+                font-size : 2.5em;
+            }
+            p{
+                margin-top : 20px;
+                font-size : 1.2em;
+                color : #333;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1> {{ restaurant_name }} </h1>
+        </header>
+        <main>
+            <p> Welcome to {{ restaurant_name }}! we're glad to have you here. </p>
+        </main>
+    </body>
+</html>
