@@ -9,3 +9,9 @@ def home_view(request):
 def homepage(request):
     phone_number = settings.RESTAURANT_PHONE_NUMBER
     return render(request,'homepage.html',{'phone_number':phone_number})
+
+def home(request):
+    context = {
+        'restaurant_name':'Delicious Bites'
+    }
+    return render(request, 'home.html',context)
