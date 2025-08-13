@@ -19,5 +19,5 @@ def home(request):
 def contact_view(request):
     return render(request,'contact.html')
 
-def about(request):
+def about_view(request):
     return render(request, 'about.html')
