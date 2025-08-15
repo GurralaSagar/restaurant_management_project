@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Page not found</title>
+        <style>
+            :root {--fg:#111;--muted:#6b7280;--accent:#2563eb;--bg:#f9fafb;}
+            html,body{height:100%}
+            body{
+                margin:0; 
+                font-family:system-ui,-apple-system,segoe UI, Roboto,Inter,Ubuntu,Arial,sans-serif;
+                color:var(--fg);
+                background:var(--bg);
+                display:grid;place-items:center;
+            }
+            .wrap{
+                text-align:center;
+                padding:2rem
+            }
+            h1{
+                font-size:3rem;
+                margin:0 0.5rem
+            }
+            p{
+                color:var(--muted);
+                margin:.5rem 0 1.25rem
+            }
+            a.btn{
+                display:inline-block;
+                padding:.7rem 1rem ;
+                border-radius:.75rem;
+                text-decoration:none;
+                border:1px solid var(--accent);
+                color:white;
+                background:var(--accent);
+            }
+            .code{
+                font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+                color:var(--muted)
+            }
+        </style>
+    </head>
+    <body>
+        <main class="wrap">
+            <div class="code"> Error 404 </div>
+            <h1> Oops - page not found </h1>
+            <p> The link you followed may be broken or the page may have been removed. </p>
+            <a class="btn" href="/"> Go to Homepage </a>
+        </main>
+    </body>
+</html>
+    
