@@ -36,3 +36,7 @@ class MenuListView(APIView):
             {"id": 4, "name": "Caesar salad", "price": 200, "category": "Salads"},
         ]
         return Response(menu_items, status=status.HTTP_200_OK)
+
+
+def custom_404(request, exception):
+    return render(request, "404.html", status=404)
