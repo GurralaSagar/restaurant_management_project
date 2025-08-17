@@ -6,11 +6,12 @@ from rest_framework import status
 from django.http import JsonResponse
 from django.db import DatabaseError
 from .models import MenuItem 
+from datetime import datetime
 
 # Create your views here.
 
 def home_view(request):
-    return render(request,'home/index.html')
+    return render(request,'home/index.html', {"current_year": datetime.now().year})
 
 def homepage(request):
     phone_number = settings.RESTAURANT_PHONE_NUMBER
