@@ -65,3 +65,6 @@ def menu_items_view(request):
             "status" : "error",
             "message" : "Something went wrong. Please try again."
         }, status=500)
+
+def reservations_view(request):
+    return render(request, "reservations.html")
