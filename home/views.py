@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from django.http import JsonResponse
+from django.db import DatabaseError
+from .models import MenuItem 
 
 # Create your views here.
 
@@ -40,3 +43,24 @@ class MenuListView(APIView):
 
 def custom_404(request, exception):
     return render(request, "404.html", status=404)
+
+
+def menu_items_view(request):
+    try:
+        items = MenuItem.objects.all().values("id", "name", "price")
+        data = list(items)
+        return JsonResponse({"status": "success", "menu_items": data}, status=200)
+    
+    except DatabaseError as e:
+        # Handle database connection/query errors
+        return JsonResponse({
+            "status" : "error",
+            "message" : "Database error occurred. Please try again later."
+        }, status=500)
+
+    except Exception as e:
+        # Catch any other unexpected error
+        return JsonResponse({
+            "status" : "error",
+            "message" : "Something went wrong. Please try again."
+        }, status=500)
