@@ -7,12 +7,16 @@
             My Restaurant
         </title>
         <style>
+            body, h1, p{
+                margin: 0;
+                padding: 0;
+            }
             body{
                 font-family : Arial, sans-serial;
-                background-color : #faf3e0;
+                background-color : #fafafa;
                 text-align : center;
-                margin : 0;
-                padding : 0;
+                color: #333;
+                padding : 40px;
             }
             header {
                 background-color : #d35400;
@@ -20,17 +24,33 @@
                 padding : 20px 0;
             }
             h1{
-                margin : 0;
+                margin-bottom: 30px;
                 font-size : 2.5em;
+                color: #555;
             }
             .logo{
                 width : 200px;
                 margin-bottom : 20px;
             }
             p{
-                margin-top : 20px;
+                margin-bottom : 30px;
                 font-size : 1.2em;
-                color : #333;
+                color : #555;
+            }
+            /* Button Styling */
+            .btn{
+                display: inline-block;
+                padding: 12px 25px;
+                background-color: #e67e22;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                font-size: 1em;
+                transition: background 0.3s ease;
+            }
+
+            .btn:hover{
+                background-color: #d35400;
             }
         </style>
     </head>
@@ -44,5 +64,8 @@
         <main>
             <p> Welcome to {{ restaurant_name }}! we're glad to have you here. </p>
         </main>
+
+        <!-- Call-to-action Button -->
+        <a href="/menu/" class="btn">View Menu</a>
     </body>
 </html>
