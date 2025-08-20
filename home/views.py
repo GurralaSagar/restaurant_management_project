@@ -5,7 +5,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.http import JsonResponse
 from django.db import DatabaseError
-from .models import MenuItem 
+
+from restaurant_management import settings
+from .models import MenuItem
 from datetime import datetime
 
 # Create your views here.
