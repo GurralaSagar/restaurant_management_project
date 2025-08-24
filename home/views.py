@@ -8,6 +8,7 @@ from django.db import DatabaseError
 from .models import MenuItem 
 from datetime import datetime
 from rest_framework.decorators import api_view
+import requests
 
 # Create your views here.
 
@@ -19,10 +20,10 @@ def homepage(request):
     return render(request,'homepage.html',{'phone_number':phone_number})
 
 def home(request):
-    context = {
-        'restaurant_name':'Delicious Bites'
-    }
-    return render(request, 'home.html',context)
+    # Fetch data from the API endpoint
+    response = requests.get('http://127.0.0.1:8000/api/menu/')
+    menu = response.json() if response.status_code == 200 else []
+    return render(request, 'home.html',{'menu':menu})
 
 def contact_view(request):
     return render(request,'contact.html')
