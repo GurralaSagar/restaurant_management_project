@@ -27,7 +27,8 @@ def home(request):
         {"name":"Veggie Burger","description":"Grilled vegetable patty served with lettuce, tomato, and sauce.","price":6.49},
         {"name":"Pasta Alfredo", "description":"Creamy Alfredo pasta with garlic and parmesan cheese.","price":7.99},
     ]
-    return render(request, 'home.html',{'menu':menu, "restaurant_name": settings.RESTAURANT_NAME})
+    address = "123 Main Street, Hyderabad, Telangana, India"
+    return render(request, 'home.html',{'menu':menu, "restaurant_name":getattr(settings, "RESTAURANT_NAME", "My Restaurant"),"address": address})
 
 def contact_view(request):
     return render(request,'contact.html')
