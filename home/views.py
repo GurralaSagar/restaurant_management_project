@@ -100,5 +100,5 @@ def menu_view(request):
 
 
 def menu_page(request):
-    menu_items = Menu.objects.all() # Fetch all menu items from Database
+    menu_items = Menu.objects.all() 
     return render(request, 'menu.html',{'menu_items':menu_items})
