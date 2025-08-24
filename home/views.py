@@ -10,6 +10,7 @@ from datetime import datetime
 from rest_framework.decorators import api_view
 import requests
 from django.conf import settings
+from .models import Menu 
 
 # Create your views here.
 
@@ -95,3 +96,8 @@ def menu_view(request):
         }
     ]
     return Response(menu)
+
+
+def menu_page(request):
+    menu_items = Menu.objects.all() # Fetch all menu items from Database
+    return render(request, 'menu.html',{'menu_items':menu_items})
