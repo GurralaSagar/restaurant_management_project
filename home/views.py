@@ -5,10 +5,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.http import JsonResponse
 from django.db import DatabaseError
-
-from restaurant_management import settings
-from .models import MenuItem
+from .models import MenuItem 
 from datetime import datetime
+from rest_framework.decorators import api_view
 
 # Create your views here.
 
@@ -70,3 +69,25 @@ def menu_items_view(request):
 
 def reservations_view(request):
     return render(request, "reservations.html")
+
+
+@api_view(['GET'])
+def menu_view(request):
+    menu = [
+        {
+            "name" : "Margherita Pizza",
+            "description" : "Classic cheese pizza with tomato sauce and moozzarrella.",
+            "price" : 8.99
+        },
+        {
+            "name" : "Veggie Burger",
+            "description" : "Grilled vegetable patty served with lettuce, tomato, and sauce.",
+            "price" : 6.49
+        },
+        {
+            "name" : "Pasta Alfredo0",
+            "description" : "Creamy Alfredo pasta with garlic and parmesan cheese.",
+            "price" : 7.99
+        }
+    ]
+    return Response(menu)
