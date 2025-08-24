@@ -78,6 +78,16 @@
             .search-container button:hover{
                 background-color: #d35400;
             }
+            .menu-item{
+                border: 1px solid #ddd;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+            }
+            .price{
+                color: green;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
@@ -101,6 +111,18 @@
 
         <!-- Call-to-action Button -->
         <a href="/menu/" class="btn">View Menu</a>
+
+        <h1>Restaurant Menu</h1>
+        {% if menu %}
+            {% for item in menu %}
+                <div class="menu-item">
+                    <h2>{{ item.name }}</h2>
+                    <p>{{ item.description }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No menu items available.</p>
+        {% endif %}
 
         {% include "footer.html" %}
     </body>
