@@ -9,6 +9,7 @@ from .models import MenuItem
 from datetime import datetime
 from rest_framework.decorators import api_view
 import requests
+from django.conf import settings
 
 # Create your views here.
 
@@ -20,10 +21,12 @@ def homepage(request):
     return render(request,'homepage.html',{'phone_number':phone_number})
 
 def home(request):
-    # Fetch data from the API endpoint
-    response = requests.get('http://127.0.0.1:8000/api/menu/')
-    menu = response.json() if response.status_code == 200 else []
-    return render(request, 'home.html',{'menu':menu})
+    menu = [
+        {"name":"Margherita Pizza","description":"Classic cheese pizza with tomato sauce and mozzarella.","price":8.99},
+        {"name":"Veggie Burger","description":"Grilled vegetable patty served with lettuce, tomato, and sauce.","price":6.49},
+        {"name":"Pasta Alfredo", "description":"Creamy Alfredo pasta with garlic and parmesan cheese.","price":7.99},
+    ]
+    return render(request, 'home.html',{'menu':menu, "restaurant_name": settings.RESTAURANT_NAME})
 
 def contact_view(request):
     return render(request,'contact.html')
