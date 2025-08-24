@@ -124,6 +124,16 @@
             <p>No menu items available.</p>
         {% endif %}
 
+        <hr>
+        <section>
+            <h2>Visit Us</h2>
+            <p><strong>Address:</strong> {{ address }}</p>
+            <div style="margin-top: 10px;">
+                <!-- Replace the src with your Google Maps embed link -->
+                <iframe src="https://www.google.com/maps" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>>
+            </div>
+        </section>
+ 
         {% include "footer.html" %}
     </body>
 </html>
