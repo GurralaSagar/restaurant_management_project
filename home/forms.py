@@ -18,3 +18,8 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactSubmission
         fields = ['name','email']
+
+class MenuItemForm(forms.ModelForm):
+    class Meta:
+        model = Menu
+        fields = ['name', 'description', 'price', 'image']
