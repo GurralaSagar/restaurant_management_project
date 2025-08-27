@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Menu, Order
-
+from .models import ContactSubmission
 # Register your models here.
 @admin.register(Menu)
 class MenuAdmin(admin.ModelAdmin):
@@ -12,3 +12,5 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ('id', 'customer_name', 'created_at')
     search_fields = ('customer_name',)
     filter_horizontal = ('items',) # Better UI for ManyToManyField
+
+admin.site.register(ContactSubmission)
