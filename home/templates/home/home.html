@@ -133,6 +133,12 @@
                 <iframe src="https://www.google.com/maps" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
+
+        <h2>Contact Us</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
  
         {% include "footer.html" %}
     </body>
