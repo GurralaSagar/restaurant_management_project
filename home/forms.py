@@ -1,7 +1,7 @@
 from django import forms
 from .models import Feedback
 from .models import ContactSubmission
-
+from .models import Menu
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
