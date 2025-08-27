@@ -11,6 +11,7 @@ from rest_framework.decorators import api_view
 import requests
 from django.conf import settings
 from .models import Menu 
+from .forms import ContactForm
 
 # Create your views here.
 
@@ -27,8 +28,17 @@ def home(request):
         {"name":"Veggie Burger","description":"Grilled vegetable patty served with lettuce, tomato, and sauce.","price":6.49},
         {"name":"Pasta Alfredo", "description":"Creamy Alfredo pasta with garlic and parmesan cheese.","price":7.99},
     ]
+
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = ContactForm()
+
     address = "123 Main Street, Hyderabad, Telangana, India"
-    return render(request, 'home.html',{'menu':menu, "restaurant_name":getattr(settings, "RESTAURANT_NAME", "My Restaurant"),"address": address})
+    return render(request, 'home.html',{'menu':menu, "restaurant_name":getattr(settings, "RESTAURANT_NAME", "My Restaurant"),"address": address ,"form":form})
 
 def contact_view(request):
     return render(request,'contact.html')
