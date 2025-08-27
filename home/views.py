@@ -29,16 +29,8 @@ def home(request):
         {"name":"Pasta Alfredo", "description":"Creamy Alfredo pasta with garlic and parmesan cheese.","price":7.99},
     ]
 
-    if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-    else:
-        form = ContactForm()
-
     address = "123 Main Street, Hyderabad, Telangana, India"
-    return render(request, 'home.html',{'menu':menu, "restaurant_name":getattr(settings, "RESTAURANT_NAME", "My Restaurant"),"address": address ,"form":form})
+    return render(request, 'home.html',{'menu':menu, "restaurant_name":getattr(settings, "RESTAURANT_NAME", "My Restaurant"),"address": address})
 
 def contact_view(request):
     return render(request,'contact.html')
@@ -112,3 +104,15 @@ def menu_view(request):
 def menu_page(request):
     menu_items = Menu.objects.all() 
     return render(request, 'menu.html',{'menu_items':menu_items})
+
+
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = contactform(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('contact_success')
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html',{'form':form})
