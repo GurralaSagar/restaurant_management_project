@@ -37,5 +37,9 @@
         {% else %}
             <p>No menu items available at the moment.</p>
         {% endif %}
+
+        {% if menu_item.image %}
+            <img src="{{ menu_item.image.url }}" alt="{{ menu_item.name }} width="150">    
+        {% endif %}
     </body>
 </html>
